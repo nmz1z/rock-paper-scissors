@@ -1,0 +1,237 @@
+*{
+    /* border: solid 1px red; */
+    box-sizing: border-box;
+}
+:root{
+    --radius: 1rem;
+    --font-color: rgb(168, 163, 183);
+    --highlight-color-1: rgba(12, 82, 101, 0.872);
+    --highlight-color-2: rgb(100, 74, 135);
+    --bg-color: rgba(26, 26, 26, 0.549);
+    --box-color: rgb(184, 184, 184);
+}
+html, body{
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Acme', sans-serif;
+    background-color: rgb(72, 72, 72);
+    filter: brightness(110%);
+}
+body{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin: 0;
+    background: url(img/bg.png) center center;
+    background-size: cover;
+    min-height: 100vh;
+}
+#header{
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+    background-color: var(--highlight-color-1);
+    margin-bottom: 0;
+}
+#game-grid{
+    position: relative;
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    max-width: 768px;
+    font-size: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "player score computer" 
+        "player result computer";
+    border-radius: var(--radius);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+.middle-container{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    border-radius: var(--radius);
+}
+
+#scoreboard{
+    grid-area: score;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    border-radius: var(--radius);
+}
+    #score-title{
+        width: 100%;
+        background-color: var(--highlight-color-1);
+        border-radius: var(--radius);
+        margin-bottom: 1rem;
+    }
+    .score-box{
+        margin: 0 0.5rem;
+        width: 25%;
+        background-color: var(--box-color);
+        color: var(--bg-color);
+        border-radius: var(--radius);
+    }
+    .score-icon{
+        font-family: 'Noto Color Emoji', sans-serif;
+        flex: 1;
+    }
+
+#result{
+    grid-area: result;
+}
+.choice-box{
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+}
+    #choice-player{
+        grid-area: player;
+    }
+    .button{
+        text-align: center;
+        font-size: 1.75rem;
+        border-radius: 10%;
+        width: 10%;
+        min-width: 2rem;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 42%;
+        background-color: var(--highlight-color-1);
+        color: rgb(3, 3, 3);
+    }
+    .button:hover{
+        background-color: red;
+        cursor: pointer;
+    }
+    .reverse{
+        right: 0;
+    }
+    #button-c{
+        height: 10%;
+        width: 50%;
+        margin: auto;
+        padding-top: 0.5rem;
+        margin-top: auto;
+        margin-bottom: 0.5rem;
+        background-color: greenyellow;
+        color: black;
+        border-radius: var(--radius);
+    }
+    #button-c:hover{
+        cursor: pointer;
+    }
+    #computer-div{
+            height: 10%;
+            width: 60%;
+            margin: auto;
+            margin-top: auto;
+            margin-bottom: 0.5rem;
+    }
+    .img-container{
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 1rem auto 1rem;
+        width: 80%;
+        flex-grow: 1;
+        background-color: var(--box-color);
+        border-radius: var(--radius);
+    }
+    .img-container p{
+        font-family: 'Noto Color Emoji', sans-serif;
+    }
+    #computer-img{
+        font-family: 'Noto Color Emoji', sans-serif;
+    }
+    #choice-computer{
+        grid-area: computer;
+    }
+    .player-header{
+        align-self: center;
+        display: flex;
+        text-align: center;
+        background-color: var(--highlight-color-1);
+        padding: 0 1rem;
+        border-radius: 1rem;
+    }
+    footer{
+        display: flex;
+        flex-wrap: wrap;
+        height: 10rem;
+        background-color: var(--highlight-color-1);
+    }
+    .info-box{
+        text-align: center;
+        margin: auto;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+    }
+    #info-text{
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    #info-text p{
+        padding: 0;
+        margin: 0;
+    }
+    a{
+        color: black;
+    }
+    a:visited{
+        color: black;
+    }
+    a:hover{
+        color: rgb(208, 208, 208);
+    }
+
+    @media (max-width: 768px)
+    {
+        #game-grid{
+
+            max-width: 15em;
+            font-size: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 3fr;
+            grid-template-areas: 
+                "score score" 
+                "result result"
+                "player computer";
+        }
+        .middle-container{
+            max-width: 400px;
+        }
+        .button{
+            top: 40%;
+        }
+        .img-container{
+            width: 95%;
+        }
+
+    }
+    @media (max-width: 450px){
+        #header{
+            margin-bottom: 0;
+            font-size: 1.5rem;
+        }
+        body{
+            background: url(img/bg.png) center;
+        }
+
+    }
